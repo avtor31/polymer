@@ -1,0 +1,24 @@
+<link rel="import"
+      href="../bower_components/polymer/polymer.html">
+<dom-module id="cell-data-provider">
+<template>
+    <div>somecontent</div>
+</template>
+    <script>
+        Polymer({
+            is: "cell-data-provider",
+            ready: function() {
+                this.numbers = [{"value":1111111111},{"value":2222222222},{"value":3333333333},{"value":4444444444},
+                    {"value":5555555555},{"value":6666666666},{"value":7777777777},{"value":8888888888}];
+                this.colors = [{"value":"red"},{"value":"green"},{"value":"brown"},{"value":"yellow"},
+                    {"value":"violet"},{"value":"wite"},{"value":"rose"},{"value":"purple"}];
+            },
+            getNumbers: function() {
+                return this.numbers;
+            },
+            getColors: function() {
+                return this.colors;
+            }
+        });
+    </script>
+</dom-module>

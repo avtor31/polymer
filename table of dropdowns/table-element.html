@@ -1,0 +1,37 @@
+<link rel="import"
+      href="../bower_components/polymer/polymer.html">
+<link rel="import" href="cell-element.html">
+<link rel="import" href="cell-data-provider.html">
+<dom-module id="table-element">
+    <template>
+        <cell-data-provider id="data_provider"></cell-data-provider>
+        <table border>
+            <tr>
+                <th>id</th>
+                <th>Col1</th>
+                <th>Col2</th>
+            </tr>
+            <template is="dom-repeat" items="{{rows}}">
+                <tr>
+                    <td>{{item}}</td>
+                    <td><cell-element datas="{{numbers}}"></cell-element >
+                    </td>
+                    <td><cell-element datas="{{colors}}"></cell-element>
+                    </td>
+                </tr>
+            </template>
+        </table>
+    </template>
+
+    <script>
+        // register a new element called proto-element
+        Polymer({
+            is: "table-element",
+            ready: function() {
+                this.rows = [1,2,3];
+                this.numbers = this.$.data_provider.getNumbers();
+                this.colors = this.$.data_provider.getColors();
+            }
+        });
+    </script>
+</dom-module>

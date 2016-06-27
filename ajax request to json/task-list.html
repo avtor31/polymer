@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<dom-module id="task-list">
+    <style>
+        :host {
+
+        }
+    </style>
+    <template>
+        <iron-ajax method='GET' auto url="./tasks.json" handle-as="json" on-response="handleResponse" last-response="{{jsondata}}"></iron-ajax>
+        <select>
+            <template is="dom-repeat" items="{{jsondata}}">
+                <option value='{{item.description}}'>{{item.name}}</option>
+            </template>
+        </select>
+        <select>
+            <template is="dom-repeat" items="{{todos}}">
+                <option value='{{item.name}}'>{{item.description}}</option>
+            </template>
+        </select>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "task-list",
+        properties: {
+            todos: {
+                type: Array,
+                notify: true
+            }
+        },
+        handleResponse: function (data) {
+            this.todos = data.detail.response;
+            console.log(this.jsondata);
+        }
+    });
+</script>

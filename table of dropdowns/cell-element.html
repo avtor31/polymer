@@ -1,0 +1,22 @@
+<link rel="import"
+      href="../bower_components/polymer/polymer.html">
+<link rel="import" href="cell-data-provider.html">
+<dom-module id="cell-element">
+    <template>
+        <select>
+            <template is="dom-repeat" items="{{datas}}">
+                <option >{{item.value}}</option>
+            </template>
+        </select>
+    </template>
+
+    <script>
+        // register a new element called proto-element
+        Polymer({
+            is: "cell-element",
+            ready: function() {
+
+            }
+        });
+    </script>
+</dom-module>

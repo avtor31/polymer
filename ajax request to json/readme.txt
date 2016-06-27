@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/30591409/using-polymer-ajax-response
